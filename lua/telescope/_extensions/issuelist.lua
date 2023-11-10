@@ -23,12 +23,12 @@ local api = vim.api
 
 return require("telescope").register_extension {
     exports = {
-        show_hotproject = function(opts)
+        all_issues = function(opts)
             opts = opts or {}
             opts.cwd = opts.cwd or vim.fn.getcwd()
             local home_dir = os.getenv("HOME")
             local dotfiles_repo = home_dir .. "/dotfiles"
-            local command = {"cd", dotfiles_repo, "; gh issue list"}
+            local command = {"gh issue list"}
             -- local command = {"cat", "/Users/8ucchiman/.config/local/hotstation"}
 
             local seen = {};
