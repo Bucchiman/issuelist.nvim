@@ -47,7 +47,7 @@ return require("telescope").register_extension {
                 finder = finders.new_oneshot_job(command, opts),
                 sorter = sorters.get_generic_fuzzy_sorter(),
                 attach_mappings = function(prompt_bufnr, map)
-                    local list_hotproject = function()
+                    local issue_list = function()
                         local picker = action_state.get_current_picker(prompt_bufnr)
                         local selections = picker:get_multi_selection()
                         if next(selections) == nil then
@@ -55,12 +55,12 @@ return require("telescope").register_extension {
                         end
                         actions.close(prompt_bufnr)
 
-                        local hotprojects = {}
-                        for _, c in ipairs(selections) do
-                            table.insert(hotprojects, c[1])
-                        end
-                        -- api.nvim_put(hotprojects, "l", true, false)
-                        vim.cmd("e " .. hotprojects[1])
+                        -- local hotprojects = {}
+                        -- for _, c in ipairs(selections) do
+                        --     table.insert(hotprojects, c[1])
+                        -- end
+                        -- -- api.nvim_put(hotprojects, "l", true, false)
+                        -- vim.cmd("e " .. hotprojects[1])
                     end
 
                 map('i', '<CR>', list_hotproject)
