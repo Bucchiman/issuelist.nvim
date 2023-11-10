@@ -28,7 +28,7 @@ return require("telescope").register_extension {
             opts.cwd = opts.cwd or vim.fn.getcwd()
             local home_dir = os.getenv("HOME")
             local dotfiles_repo = home_dir .. "/dotfiles"
-            local command = {"gh issue list"}
+            local command = {"gh", "issue", "list"}
             -- local command = {"cat", "/Users/8ucchiman/.config/local/hotstation"}
 
             local seen = {};
